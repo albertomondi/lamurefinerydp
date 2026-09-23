@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DP COMMAND CENTER — Lamu Refinery Groundbreaking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DP COMMAND CENTER - OFFICIAL PROTOCOL MATRIX</title>
 <style>
-*{font-family:Tahoma,sans-serif!important;font-size:12px!important;box-sizing:border-box}
-:root{--black:#000000;--red:#CE1126;--green:#006600;--gold:#FFC72C;--bg:#f8fafc;--card:#ffffff;--text:#0f172a;--muted:#64748b;--border:#e2e8f0}
-.dark{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--border:#334155}
-body{margin:0;background:var(--bg);color:var(--text);border-top:6px solid var(--black);border-bottom:6px solid var(--red);box-shadow:0 -6px 0 var(--green) inset}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;border-left:4px solid var(--gold);padding:10px;margin-bottom:10px}
-.btn{padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-weight:bold}
-.btn-g{background:var(--green);color:#fff;border-color:var(--green)}.btn-r{background:var(--red);color:#fff}.btn-b{background:#0f172a;color:#fff}
-.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.R{background:var(--red)}.A{background:var(--gold)}.G{background:var(--green)}
-table{width:100%;border-collapse:collapse}th,td{border:1px solid var(--border);padding:6px;text-align:left}
-@media print{.no-print{display:none!important}}
+body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial}
+.header{background:linear-gradient(90deg,#000,#BB0000,#006600);padding:16px;text-align:center;border-bottom:3px solid gold;position:sticky;top:0;z-index:10}
+.header h1{margin:0;font-size:18px} .header span{font-size:11px;color:#ffeb99}
+.card{background:#151515;border:1px solid #2a2a2a;border-radius:12px;padding:10px;margin:10px}
+h2{font-size:14px;color:gold;margin:0 0 8px 0;border-left:3px solid red;padding-left:6px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#222;color:gold;padding:7px;text-align:left}
+td{padding:7px;border-bottom:1px solid #222;vertical-align:top}
+input{width:92%;background:#0e0e0e;border:1px solid #444;color:#0f0;padding:6px;border-radius:6px;font-size:12px}
+.btn{background:#BB0000;color:white;border:none;width:100%;padding:11px;border-radius:8px;font-weight:bold;margin-top:8px}
+.small{font-size:10px;color:#888}
 </style>
 </head>
 <body>
-<div style="max-width:1600px;margin:0 auto;padding:12px">
-<div class="no-print" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
-<div style="display:flex;gap:6px"><button class="btn" onclick="document.documentElement.classList.toggle('dark')">🌙/☀️</button><button class="btn" onclick="window.print()">🖨️ DP Brief PDF</button><button class="btn btn-b" onclick="location.reload()">↻ Auto 15s ON</button></div>
-<div id="clock" style="font-weight:bold;color:var(--muted)"></div>
+<div class="header">
+<h1>DEPUTY PRESIDENT COMMAND CENTER</h1>
+<span>LAMU REFINERY LAUNCH - 14 VVIPs OFFICIAL PROTOCOL MATRIX - LIVE</span>
 </div>
-<div class="card"><h1 style="margin:0;font-size:15px!important">DEPUTY PRESIDENT COMMAND CENTER — EAST AFRICAN REFINERY, LAMU — 30 SEPT 2026</h1><div id="sub" style="color:var(--muted);margin-top:4px"></div>
-<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><div class="card"><b>CONFIRMED:</b> <span id="kpiConf" style="color:var(--green);font-weight:bold">4</span></div><div class="card"><b>PENDING:</b> <span id="kpiPend" style="color:var(--red);font-weight:bold">10</span></div><div class="card"><b>RED Items:</b> <span id="kpiRed" style="color:var(--red);font-weight:bold">0</span></div><div class="card"><b>Accreditation:</b> 21-28 Sept 20:00HRS Closes | <b>72hr/48hr Gates Active</b></div></div></div>
-<div style="display:grid;grid-template-columns:1.1fr 0.7fr 1.2fr;gap:10px" class="no-print">
-<div class="card"><b>VVIP TRACKER — Latest CONFIRMED on Top | Congo + DRC Separate</b><div id="vvip" style="margin-top:8px"></div><button class="btn btn-g" style="margin-top:6px" onclick="addC()">+ Add Country</button></div>
-<div class="card"><b>CRITICAL CALENDAR 22-30 SEPT</b><div id="cal" style="margin-top:8px"></div></div>
-<div class="card"><b>LIVE FEED — Instant Updates</b><input id="feedInput" placeholder="Type: Togo landed Wilson 10:32..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:8px;margin:6px 0"><button class="btn btn-g" onclick="addFeed()">Post Update</button><div id="feed" style="margin-top:8px;max-height:380px;overflow:auto"></div></div>
+
+<div class="card">
+<h2>PROTOCOL OFFICERS ATTACHED TO: HoS/G | Vice-President | Others</h2>
+<p class="small">From your official document - 14 countries. Add mobile numbers when you get them.</p>
+<table>
+<tr><th>#</th><th>Country (VVIP)</th><th>Protocol Officer Attached To</th><th>President Team Coordinator Mobile</th><th>Protocol Team Mobile</th></tr>
+
+<tr><td>1</td><td><b>Rwanda</b></td><td>Mr. Timothy Mwangi</td><td><input id="r1a" placeholder="+254..."></td><td><input id="r1b" placeholder="+254..."></td></tr>
+<tr><td>2</td><td><b>Republic of Congo</b><br><span class="small">Congo-Brazzaville - SEPARATE from DRC</span></td><td>Mr. Sar... (as per doc)</td><td><input id="r2a" placeholder="+254..."></td><td><input id="r2b" placeholder="+254..."></td></tr>
+<tr><td>3</td><td><b>Ethiopia</b></td><td>Mr. Joshua Kariuki</td><td><input id="r3a" placeholder="+254..."></td><td><input id="r3b" placeholder="+254..."></td></tr>
+<tr><td>4</td><td><b>Nigeria</b></td><td>Mr. Mike Maiyo</td><td><input id="r4a" placeholder="+254..."></td><td><input id="r4b" placeholder="+254..."></td></tr>
+<tr><td>5</td><td><b>Uganda</b></td><td>Mr. Brian Riechi</td><td><input id="r5a" placeholder="+254..."></td><td><input id="r5b" placeholder="+254..."></td></tr>
+<tr><td>6</td><td><b>Mozambique</b></td><td>Ms. Betty Ka...</td><td><input id="r6a" placeholder="+254..."></td><td><input id="r6b" placeholder="+254..."></td></tr>
+<tr><td>7</td><td><b>Burundi</b></td><td>Mr. Holyfield Wa...</td><td><input id="r7a" placeholder="+254..."></td><td><input id="r7b" placeholder="+254..."></td></tr>
+<tr><td>8</td><td><b>Benin</b></td><td>Mr. Lester Omondi</td><td><input id="r8a" placeholder="+254..."></td><td><input id="r8b" placeholder="+254..."></td></tr>
+<tr><td>9</td><td><b>DRC</b><br><span class="small">DRC-Kinshasa - SEPARATE</span></td><td>Mr. Titus Ngota</td><td><input id="r9a" placeholder="+254..."></td><td><input id="r9b" placeholder="+254..."></td></tr>
+<tr><td>10</td><td><b>Ghana</b></td><td>Mr. Nelson Kanja</td><td><input id="r10a" placeholder="+254..."></td><td><input id="r10b" placeholder="+254..."></td></tr>
+<tr><td>11</td><td><b>Somalia</b></td><td>Mr. Peter Mutui</td><td><input id="r11a" placeholder="+254..."></td><td><input id="r11b" placeholder="+254..."></td></tr>
+<tr><td>12</td><td><b>South Sudan</b></td><td>Ms. Tina Kendi</td><td><input id="r12a" placeholder="+254..."></td><td><input id="r12b" placeholder="+254..."></td></tr>
+<tr><td>13</td><td><b>Tanzania</b></td><td>Mr. Saidi Omari</td><td><input id="r13a" placeholder="+254..."></td><td><input id="r13b" placeholder="+254..."></td></tr>
+<tr><td>14</td><td><b>Togo</b></td><td>Ms. Cynthia Njiru</td><td><input id="r14a" placeholder="+254..."></td><td><input id="r14b" placeholder="+254..."></td></tr>
+</table>
+<button class="btn" onclick="saveAll()">💾 SAVE MOBILE NUMBERS</button>
+<p id="msg" class="small"></p>
 </div>
-<div class="card"><b>24 WORKSTREAMS READINESS MATRIX — Evidence-Based (Per Your 22 Sept Executive Report)</b><div id="matrix" style="margin-top:8px"></div></div>
+
+<div class="card">
+<h2>TRANSPORT</h2>
+<table><tr><td>1. Mr. Shunu A. Abdi</td><td><input id="t1a" placeholder="President Team Mobile"></td><td><input id="t1b" placeholder="Protocol Mobile"></td></tr></table>
 </div>
+
 <script>
-const vvipBaseline=[{c:"RWANDA",s:"CONFIRMED",name:"H.E. Paul Kagame",contact:"TBC",t:Date.now()-1000},{c:"ETHIOPIA",s:"CONFIRMED",name:"H.E. Ethiopia",contact:"TBC",t:Date.now()-2000},{c:"SOUTH SUDAN",s:"CONFIRMED",name:"H.E. South Sudan",contact:"TBC",t:Date.now()-3000},{c:"TOGO",s:"CONFIRMED",name:"H.E. Togo",contact:"TBC",t:Date.now()-4000},{c:"REPUBLIC OF CONGO (Brazzaville)",s:"PENDING",name:"H.E. Denis Sassou Nguesso",contact:"TBC",t:null},{c:"NIGERIA (Dangote)",s:"PENDING",name:"Aliko Dangote",contact:"TBC",t:null},{c:"UGANDA",s:"PENDING",name:"TBC",contact:"TBC",t:null},{c:"MOZAMBIQUE",s:"PENDING",name:"TBC",contact:"TBC",t:null},{c:"BURUNDI",s:"PENDING",name:"TBC",contact:"TBC",t:null},{c:"BENIN",s:"PENDING",name:"TBC",contact:"TBC",t:null},{c:"DRC (Congo-Kinshasa)",s:"PENDING",name:"H.E. Felix Tshisekedi",contact:"TBC",t:null},{c:"GHANA",s:"PENDING",name:"TBC",contact:"TBC",t:null},{c:"SOMALIA",s:"PENDING",name:"TBC",contact:"TBC",t:null},{c:"TANZANIA",s:"PENDING",name:"TBC",contact:"TBC",t:null}];
-const readinessBaseline=[{id:1,w:"Master coordination & daily RAG review",lead:"Coordinating Team",dead:"Daily to 30 Sept",rag:"A",ev:"One dashboard + decision log"},{id:2,w:"Site & venue final readiness",lead:"Venue Team",dead:"Final sign-off before 30 Sept",rag:"R",ev:"Cert missing - verify"},{id:3,w:"Temporary infrastructure (power/water/ICT)",lead:"Venue Team",dead:"27-28 Sept test 29",rag:"A",ev:"Backup required"},{id:4,w:"Accreditation – participants (badge 21 Sept, closes 28 Sept)",lead:"Accreditation",dead:"28 Sept 20:00",rag:"A",ev:"Online + physical"},{id:5,w:"Vehicle & driver accreditation",lead:"Transport",dead:"28 verify 29",rag:"A",ev:"Passes + convoy map"},{id:6,w:"Media accreditation (Media Council Kenya)",lead:"Gov Comms",dead:"28 check 29",rag:"A",ev:"Zones + filing area"},{id:7,w:"Heads of State / delegation confirmations",lead:"MFA/Protocol",dead:"Lock 27-28 Sept",rag:"R",ev:"10 PENDING drive daily"},{id:8,w:"Protocol / liaison deployment",lead:"SDFA Protocol",dead:"Assign 27 brief 29",rag:"A",ev:"Contact tree"},{id:9,w:"Aviation & aircraft (Lamu + KDF Manda, 48hr rule)",lead:"Aviation/Security",dead:"≥48hrs before",rag:"R",ev:"Correct 2025 to 2026 error"},{id:10,w:"VVIP transport – air/land/water",lead:"Transport/Protocol",dead:"Lock 27-28 rehearse 29",rag:"A",ev:"Helo/vehicle/boat + reserve"},{id:11,w:"Convoy & venue movement sequencing",lead:"Protocol/Security",dead:"Final 29 Sept",rag:"A",ev:"Minute-by-minute matrix"},{id:12,w:"Security & emergency response",lead:"Interior/Defence",dead:"Final 29 Sept",rag:"A",ev:"Screening + medevac"},{id:13,w:"Firearms clearances (72hr)",lead:"MFA Protocol",dead:"≥72hrs before",rag:"R",ev:"Lists required"},{id:14,w:"Radio-frequency clearances (72hr)",lead:"MFA/Comms",dead:"≥72hrs before",rag:"R",ev:"Forms required"},{id:15,w:"Health & medical readiness",lead:"Health/Venue",dead:"28 verify 29",rag:"A",ev:"Clinics + ambulances"},{id:16,w:"Accommodation & holding rooms",lead:"Protocol",dead:"27-28 Sept",rag:"A",ev:"Rooming list"},{id:17,w:"State luncheon 13:00HRS invitation only",lead:"Protocol/State House",dead:"Guest 27-28 setup 29",rag:"A",ev:"Seating + dietary"},{id:18,w:"Community engagement & local interface",lead:"County/Admin",dead:"Continuous",rag:"A",ev:"Issue log"},{id:19,w:"Project / financial executive brief (one fact sheet)",lead:"Project Econ",dead:"27 Sept",rag:"R",ev:"Reconcile Sh2.2T figures"},{id:20,w:"Government communications package",lead:"Gov Comms",dead:"27-28 clear 29",rag:"A",ev:"Key messages + Q&A"},{id:21,w:"Investor & stakeholder engagement",lead:"MFA/Invest",dead:"27-28 Sept",rag:"A",ev:"Engagement schedule"},{id:22,w:"Final full operational rehearsal GO/NO-GO",lead:"All leads",dead:"29 Sept",rag:"R",ev:"Formal determination"},{id:23,w:"Ground-breaking ceremony execution",lead:"Gov",dead:"30 Sept",rag:"G",ev:"10:00HRS scheduled"},{id:24,w:"Post-event closure & follow-up",lead:"Coord Team",dead:"30 Sept-2 Oct",rag:"G",ev:"Report + tracker"}];
-let vvip=JSON.parse(localStorage.getItem('dp_vvip')||'null')||vvipBaseline;let readiness=JSON.parse(localStorage.getItem('dp_read')||'null')||readinessBaseline;let feed=JSON.parse(localStorage.getItem('dp_feed')||'[]');
-function renderVVIP(){let sorted=[...vvip].sort((a,b)=>{if(a.s==='CONFIRMED'&&b.s!=='CONFIRMED')return-1;if(a.s!=='CONFIRMED'&&b.s==='CONFIRMED')return 1;if(a.s==='CONFIRMED'&&b.s==='CONFIRMED')return(b.t||0)-(a.t||0);return 0});document.getElementById('vvip').innerHTML='<table><tr style="background:var(--bg)"><th>#</th><th>Country</th><th>Status</th><th>VVIP</th></tr>'+sorted.map(r=>{let real=vvip.indexOf(r);let time=r.t?new Date(r.t).toLocaleTimeString():'';return `<tr style="${r.s==='CONFIRMED'?'background:rgba(0,102,0,0.07)':''}"><td>${sorted.indexOf(r)+1}</td><td contenteditable="true" onblur="updV(${real},'c',this.innerText)" style="font-weight:bold">${r.c}</td><td><button class="btn ${r.s==='CONFIRMED'?'btn-g':'btn-b'}" onclick="toggleV(${real})">${r.s}</button><div style="font-size:10px">${time}</div></td><td contenteditable="true" onblur="updV(${real},'name',this.innerText)">${r.name}</td></tr>`}).join('')+'</table>';localStorage.setItem('dp_vvip',JSON.stringify(vvip));document.getElementById('kpiConf').innerText=vvip.filter(v=>v.s==='CONFIRMED').length;document.getElementById('kpiPend').innerText=vvip.filter(v=>v.s!=='CONFIRMED').length}
-function renderMatrix(){document.getElementById('matrix').innerHTML='<table><tr style="background:var(--bg)"><th>No</th><th>Workstream</th><th>Lead</th><th>Deadline</th><th>RAG</th><th>Evidence/Control</th></tr>'+readiness.map(r=>`<tr><td>${r.id}</td><td contenteditable="true" onblur="updR(${r.id-1},'w',this.innerText)">${r.w}</td><td>${r.lead}</td><td>${r.dead}</td><td style="text-align:center"><span class="dot ${r.rag}" style="width:14px;height:14px"></span> <button class="btn" onclick="cycleR(${r.id-1})">${r.rag}</button></td><td contenteditable="true" onblur="updR(${r.id-1},'ev',this.innerText)">${r.ev||'TBC'}</td></tr>`).join('')+'</table>';localStorage.setItem('dp_read',JSON.stringify(readiness));document.getElementById('kpiRed').innerText=readiness.filter(x=>x.rag==='R').length}
-function renderCal(){let c=[{d:"22-24 Sept",a:"Daily closure review, confirm owners, VVIP drive, accreditation + aircraft data"},{d:"25-27 Sept",a:"Lock VVIP list, process 72hr firearms/radio, finalize all allocations"},{d:"28 Sept",a:"Online accreditation CLOSES 20:00, reconcile all, 48hr aircraft gate for 30 Sept"},{d:"29 Sept",a:"Full rehearsal + GO/NO-GO readiness determination"},{d:"30 Sept",a:"Ground-breaking + Luncheon 13:00HRS + Live coordination"},{d:"30-2 Oct",a:"Post-event closure"}];document.getElementById('cal').innerHTML=c.map(x=>`<div class="card" style="padding:6px;margin-bottom:4px"><b>${x.d}:</b> ${x.a}</div>`).join('')}
-function renderFeed(){document.getElementById('feed').innerHTML=feed.slice().reverse().map(f=>`<div class="card" style="padding:6px;margin-bottom:4px"><b>${f.time}</b> — ${f.text}<br><span style="color:var(--muted)">${f.by}</span></div>`).join('')}
-function toggleV(i){if(vvip[i].s==='PENDING'){vvip[i].s='CONFIRMED';vvip[i].t=Date.now()}else{vvip[i].s='PENDING';vvip[i].t=null}renderVVIP();addFeedAuto(vvip[i].c+' → '+vvip[i].s)}
-function updV(i,k,v){vvip[i][k]=v.trim();localStorage.setItem('dp_vvip',JSON.stringify(vvip))}function updR(i,k,v){readiness[i][k]=v.trim();localStorage.setItem('dp_read',JSON.stringify(readiness));renderMatrix()}function cycleR(i){let o=['R','A','G'];readiness[i].rag=o[(o.indexOf(readiness[i].rag)+1)%3];renderMatrix()}function addC(){let c=prompt('Country:');if(!c)return;vvip.push({c:c.toUpperCase(),s:"PENDING",name:"TBC",contact:"TBC",t:null});renderVVIP()}function addFeed(){let t=document.getElementById('feedInput').value;if(!t)return;feed.push({time:new Date().toLocaleString(),text:t,by:"DP Desk"});localStorage.setItem('dp_feed',JSON.stringify(feed));document.getElementById('feedInput').value='';renderFeed()}function addFeedAuto(txt){feed.push({time:new Date().toLocaleString(),text:txt,by:"System"});localStorage.setItem('dp_feed',JSON.stringify(feed));renderFeed()}function tick(){document.getElementById('clock').innerText=new Date().toLocaleString('en-KE',{timeZone:'Africa/Nairobi'})+' NAIROBI | '+Math.ceil((new Date('2026-09-30')-new Date())/86400000)+' days to 30 Sept';document.getElementById('sub').innerText='30 Sept 2026, 10:00HRS Lamu SEZ | Sh2.2T (USD 17B) | Source: Executive Report 22 Sept | Sorted: Latest CONFIRMED top | Republic of Congo + DRC separate | Kenya Flag Edition'}
-renderVVIP();renderMatrix();renderCal();renderFeed();tick();setInterval(tick,1000);setInterval(()=>{renderVVIP();renderMatrix()},15000)
+function saveAll(){
+ document.querySelectorAll('input').forEach(i=>localStorage.setItem('lamu_'+i.id,i.value));
+ document.getElementById('msg').innerText='✅ Saved at '+new Date().toLocaleTimeString()+' - Numbers stored on this phone only';
+}
+(function load(){document.querySelectorAll('input').forEach(i=>{let v=localStorage.getItem('lamu_'+i.id); if(v) i.value=v;})})();
 </script>
 </body>
 </html>
