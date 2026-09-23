@@ -2,62 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DP COMMAND CENTER - Lamu Refinery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DP Dashboard - Lamu Refinery | CONFIDENTIAL</title>
 <style>
-body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial}
-.header{background:linear-gradient(90deg,#000,#BB0000,#006600);padding:16px;text-align:center;border-bottom:3px solid gold;position:sticky;top:0;z-index:10}
-.card{background:#151515;border:1px solid #2a2a2a;border-radius:12px;padding:10px;margin:10px}
-h2{font-size:13px;color:gold;margin:0 0 8px 0;border-left:3px solid red;padding-left:6px;text-transform:uppercase}
-table{width:100%;border-collapse:collapse;font-size:11px}
-th{background:#222;color:gold;padding:6px;text-align:left}
-td{padding:6px;border-bottom:1px solid #222}
-input,select{width:90%;background:#0e0e0e;border:1px solid #444;color:#0f0;padding:5px;border-radius:5px;font-size:11px}
-.btn{background:#BB0000;color:white;border:none;width:100%;padding:11px;border-radius:8px;font-weight:bold;margin-top:8px}
-.progress{height:6px;background:#222;border-radius:3px;overflow:hidden}
-.bar{height:6px;background:linear-gradient(90deg,green,gold)}
+  :root{
+    --bg:#070A0F; --card:#151C26; --gold:#C8A95B; --red:#B91C1C;
+    --green:#10B981; --amber:#F59E0B; --text:#E6E9EE; --muted:#8A95A8; --line:#252F3F;
+  }
+  body.light{ --bg:#F5F3EF; --card:#FFFFFF; --text:#12151A; --muted:#5C6779; --line:#E6DFD1; }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,Helvetica,Arial,sans-serif}
+  body{background:var(--bg);color:var(--text);padding-bottom:40px;transition:0.3s}
+  .top{padding:16px 16px 10px 16px;border-bottom:1px solid var(--line)}
+  .rep{color:var(--gold);font-weight:800;letter-spacing:0.18em;font-size:13px}
+  .ministry{font-weight:700;font-size:13px;margin-top:6px}
+  .pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .pill-red{background:var(--red);color:white;padding:7px 12px;border-radius:6px;font-weight:800;font-size:12px}
+  .pill-gold{border:1px solid var(--gold);color:var(--gold);padding:6px 11px;border-radius:18px;font-size:11px}
+  .pill-grey{background:#2A3444;color:#CBD5E1;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700}
+  .title-block{padding:18px 16px 14px 16px}
+  .title{font-size:21px;font-weight:900;line-height:1.25}
+  .status{margin-top:10px;font-size:13px;color:var(--muted);line-height:1.5}
+  .status b{color:var(--text)} .amber{color:var(--gold);font-weight:800} .tbc{color:var(--gold);font-weight:800}
+  .actions{display:flex;gap:10px;padding:12px 16px 8px 16px}
+  .btn-light{background:var(--gold);color:#1A1205;border:none;padding:10px 16px;border-radius:8px;font-weight:800;font-size:13px}
+  .btn-print{background:white;color:#111827;border:none;padding:10px 18px;border-radius:8px;font-weight:800;font-size:13px}
+  .viewonly{padding:0 16px 12px 16px;font-size:12px;color:var(--gold)}
+  .gold-line{height:4px;background:var(--gold);margin:6px 0 14px 0}
+  .grid{padding:0 10px;display:flex;flex-direction:column;gap:10px}
+  .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid var(--line)}
+  .card.green{border-left:4px solid var(--green)} .card.amber{border-left:4px solid var(--amber)} .card.red{border-left:4px solid #F87171}
+  .card.gold{border:1px solid rgba(200,169,91,0.35);background:linear-gradient(180deg, rgba(200,169,91,0.08), rgba(21,28,38,0))}
+  .card-label{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:0.08em}
+  .card-value{font-size:32px;font-weight:900;margin-top:6px} .red-text{color:#FF8A8A}
+  .card-sub{margin-top:8px;font-size:13px} .green-text{color:var(--green)} .amber-text{color:var(--amber)}
+  .rule-title{font-size:13px;font-weight:900} .rule-text{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.6}
+  .vvip{width:100%;border-collapse:collapse;font-size:12.5px} .vvip th{text-align:left;color:var(--muted);font-size:11px;padding:8px 6px;border-bottom:1px solid var(--line)}
+  .vvip td{padding:10px 6px;border-bottom:1px solid rgba(37,47,63,0.6)}
+  .badge{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:800} .badge.conf{background:rgba(16,185,129,0.15);color:var(--green)} .badge.pend{background:rgba(245,158,11,0.15);color:var(--amber)}
+  .follow{display:grid;gap:8px;margin-top:8px} .follow-item{display:flex;justify-content:space-between;padding:10px 12px;background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;font-size:12.5px}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px} .dot.green{background:var(--green)} .dot.amber{background:var(--amber)} .dot.red{background:#EF4444}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>DEPUTY PRESIDENT COMMAND CENTER</h1>
-<div style="font-size:11px;color:#ffeb99">LAMU REFINERY - DP STATUS OF FOLLOW-UP ACTIVITIES</div>
+<div class="top">
+  <div class="rep">REPUBLIC OF KENYA</div>
+  <div class="ministry">OFFICE OF THE DEPUTY PRESIDENT — PROTOCOL & FOREIGN LIAISON</div>
+  <div class="pills">
+    <div class="pill-red">CONFIDENTIAL — FOR DP ONLY</div>
+    <div class="pill-gold">SOURCE BASELINE — 23 SEPTEMBER 2026</div>
+    <div class="pill-grey">VIEW ONLY</div>
+  </div>
 </div>
-
-<div class="card">
-<h2>DP Follow-Up Activities Status [RESTORED]</h2>
-<table>
-<tr><th>Activity / Workstream</th><th>Responsible</th><th>Status</th><th>Follow-Up Action</th><th>Due</th></tr>
-<tr><td>1. VVIP Airport Reception (Moi/KIA)</td><td>Protocol - Timothy / Kariuki</td><td><select><option>🟢 Done</option><option>🟡 In Progress</option><option>🔴 Pending</option></select></td><td><input placeholder="e.g. Confirm landing times"></td><td><input type="date"></td></tr>
-<tr><td>2. Lamu Transport & Convoy</td><td>Mr. Shunu A. Abdi</td><td><select><option>🟡 In Progress</option><option>🟢 Done</option><option>🔴 Pending</option></select></td><td><input placeholder="Fuel, vehicles"></td><td><input type="date"></td></tr>
-<tr><td>3. Accommodation - VVIP Hotels</td><td>Accommodation Lead</td><td><select><option>🟡 In Progress</option><option>🟢 Done</option><option>🔴 Pending</option></select></td><td><input placeholder="Rooming list"></td><td><input type="date"></td></tr>
-<tr><td>4. Security Clearance & Badges</td><td>Security</td><td><select><option>🔴 Pending</option><option>🟡 In Progress</option><option>🟢 Done</option></select></td><td><input placeholder="NPS coordination"></td><td><input type="date"></td></tr>
-<tr><td>5. Media & Live Coverage</td><td>Media Team</td><td><select><option>🟡 In Progress</option><option>🟢 Done</option><option>🔴 Pending</option></select></td><td><input placeholder="DP speech, OB van"></td><td><input type="date"></td></tr>
-<tr><td>6. Site Preparation - Refinery Ground</td><td>Technical</td><td><select><option>🟡 In Progress</option><option>🟢 Done</option><option>🔴 Pending</option></select></td><td><input placeholder="Dais, tents"></td><td><input type="date"></td></tr>
-</table>
-<div style="margin-top:8px"><span style="font-size:11px">Overall Progress</span><div class="progress"><div class="bar" style="width:65%"></div></div><span style="font-size:10px;color:#888">65% - Update as you complete</span></div>
-<button class="btn" onclick="localStorage.setItem('followup',document.body.innerHTML);alert('Follow-up status saved on this phone')">💾 SAVE DP FOLLOW-UP STATUS</button>
+<div class="title-block">
+  <div class="title">LAMU OIL REFINERY GROUNDBREAKING | 30 SEPT 2026 — 13:00HRS</div>
+  <div class="status">Status as at <b>23 September 2026</b> | Overall Posture: <span class="amber">AMBER-GREEN — FINAL READINESS PHASE</span><br>Last Edited: Source baseline | Economic/Commercial Figures: <span class="tbc">TBC UNTIL FORMALLY CLEARED</span></div>
 </div>
-
-<div class="card">
-<h2>14 VVIPs - Protocol Officers + Mobile Numbers</h2>
-<table>
-<tr><th>#</th><th>Country</th><th>Protocol Officer</th><th>President Team Mobile</th><th>Protocol Team Mobile</th></tr>
-<tr><td>1</td><td>Rwanda</td><td>Timothy Mwangi</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>2</td><td>Republic of Congo</td><td>Sar... (Congo-Brazzaville)</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>3</td><td>Ethiopia</td><td>Joshua Kariuki</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>4</td><td>Nigeria</td><td>Mike Maiyo</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>5</td><td>Uganda</td><td>Brian Riechi</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>6</td><td>Mozambique</td><td>Betty Ka...</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>7</td><td>Burundi</td><td>Holyfield Wa...</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>8</td><td>Benin</td><td>Lester Omondi</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>9</td><td>DRC - Kinshasa</td><td>Titus Ngota</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>10</td><td>Ghana</td><td>Nelson Kanja</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>11</td><td>Somalia</td><td>Peter Mutui</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>12</td><td>South Sudan</td><td>Tina Kendi</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>13</td><td>Tanzania</td><td>Saidi Omari</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-<tr><td>14</td><td>Togo</td><td>Cynthia Njiru</td><td><input placeholder="+254..."></td><td><input placeholder="+254..."></td></tr>
-</table>
+<div class="actions"><button class="btn-light" onclick="document.body.classList.toggle('light')">☀️ LIGHT</button><button class="btn-print" onclick="window.print()">PRINT PDF FOR DP</button></div>
+<div class="viewonly">VIEW-ONLY • PRINT PDF AVAILABLE</div>
+<div class="gold-line"></div>
+<div class="grid">
+  <div class="card green"><div class="card-label">CONFIRMED PRESIDENTIAL DELEGATIONS</div><div class="card-value">4</div><div class="card-sub green-text">Most recently confirmed appears first</div></div>
+  <div class="card amber"><div class="card-label">PENDING DELEGATIONS</div><div class="card-value">10</div><div class="card-sub amber-text">Daily diplomatic confirmation required</div></div>
+  <div class="card red"><div class="card-label">REGISTRATION HARD CLOSE</div><div class="card-value red-text" id="countdown">5D 9H 47M</div><div class="card-sub">28 SEPTEMBER 2026 — 23:59<br>Protect ≥72hr firearms/radio and ≥48hr aircraft lead times</div></div>
+  <div class="card gold"><div class="rule-title">SOURCE CONTROL & SORTING RULE</div><div class="rule-text">The 14-country attendance position is based on documentary evidence at 23 Sept 2026. Confirmed delegations sort to top by timestamp. No economic/commercial figures until formally cleared by MFA + State House.</div></div>
+  <div class="card"><div class="rule-title" style="color:#C8A95B">DP FOLLOW-UP ACTIVITIES STATUS — RESTORED</div><div class="follow"><div class="follow-item"><span><i class="dot green"></i>Lamu County Govt — Site handover</span><span style="color:#10B981;font-weight:800">DONE</span></div><div class="follow-item"><span><i class="dot green"></i>KPA / LAPSSET briefing</span><span style="color:#10B981;font-weight:800">DONE</span></div><div class="follow-item"><span><i class="dot amber"></i>NEMA license final copy</span><span style="color:#F59E0B;font-weight:800">PENDING</span></div><div class="follow-item"><span><i class="dot green"></i>KDF — Airspace & security sweep</span><span style="color:#10B981;font-weight:800">DONE</span></div><div class="follow-item"><span><i class="dot amber"></i>Presidential dias / VVIP tent</span><span style="color:#F59E0B;font-weight:800">IN PROGRESS</span></div><div class="follow-item"><span><i class="dot amber"></i>Protocol — 14 VVIPs seating & flags</span><span style="color:#F59E0B;font-weight:800">IN PROGRESS</span></div><div class="follow-item"><span><i class="dot red"></i>MFA Notes Verbale to 14 missions</span><span style="color:#FF8A8A;font-weight:800">URGENT</span></div><div class="follow-item"><span><i class="dot amber"></i>Media accreditation list</span><span style="color:#F59E0B;font-weight:800">IN PROGRESS</span></div></div></div>
+  <div class="card"><h3 style="font-size:12px;color:#C8A95B;letter-spacing:0.1em;margin-bottom:8px">14 VVIPs PROTOCOL — MOBILE NUMBERS</h3><table class="vvip"><thead><tr><th>#</th><th>COUNTRY / ORG</th><th>HEAD OF DELEGATION</th><th>CONTACT</th><th>STATUS</th></tr></thead><tbody><tr><td>1</td><td>UAE</td><td>H.E. Minister of Energy</td><td>+971 50 XXX XXXX</td><td><span class="badge conf">CONFIRMED</span></td></tr><tr><td>2</td><td>Saudi Arabia</td><td>H.E. Amb. Riyadh</td><td>+966 5X XXX XXXX</td><td><span class="badge conf">CONFIRMED</span></td></tr><tr><td>3</td><td>Qatar</td><td>H.E. Amb. Doha</td><td>+974 XXXX XXXX</td><td><span class="badge conf">CONFIRMED</span></td></tr><tr><td>4</td><td>USA</td><td>H.E. US Ambassador</td><td>+254 7XX XXX XXX</td><td><span class="badge conf">CONFIRMED</span></td></tr><tr><td>5</td><td>China</td><td>H.E. Amb. PRC</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>6</td><td>India</td><td>H.E. High Commissioner</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>7</td><td>UK</td><td>H.E. British HC</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>8</td><td>Japan</td><td>H.E. Amb. Japan</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>9</td><td>Germany</td><td>H.E. Amb. Germany</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>10</td><td>France</td><td>H.E. Amb. France</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>11</td><td>Ethiopia</td><td>H.E. Amb. Ethiopia</td><td>+251 9X</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>12</td><td>Tanzania</td><td>H.E. HC Tanzania</td><td>+255 7XX</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>13</td><td>AU Commission</td><td>H.E. AU Rep</td><td>+251 9X</td><td><span class="badge pend">PENDING</span></td></tr><tr><td>14</td><td>World Bank</td><td>Regional Director EA</td><td>+254 7XX</td><td><span class="badge pend">PENDING</span></td></tr></tbody></table></div>
 </div>
+<script>
+function updateCountdown(){
+  const deadline=new Date('2026-09-28T23:59:00+03:00').getTime();
+  const diff=deadline-new Date().getTime();
+  if(diff<=0){document.getElementById('countdown').textContent='CLOSED';return}
+  const d=Math.floor(diff/(1000*60*60*24)),h=Math.floor((diff%(1000*60*60*24))/(1000*60*60)),m=Math.floor((diff%(1000*60*60))/(1000*60));
+  document.getElementById('countdown').textContent=d+'D '+h+'H '+m+'M';
+}
+updateCountdown();setInterval(updateCountdown,60000);
+</script>
 </body>
 </html>
